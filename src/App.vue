@@ -7,16 +7,18 @@
 		</div>
 
 <div v-else>
-        <input type="email" v-model="email">
-		<button@click="logMeIn()"> zaloguj </button>
+        <login-form @login="logMeIn($event)"></login-form>
 		</div>
     </div>
 </template>
 
 <script>
 import "milligram";
+import LoginForm from "./LoginForm";
 
     export default {
+	components: {LoginForm},
+	
         data() {
             return {
                 email: '',
@@ -25,8 +27,8 @@ import "milligram";
         },
 		
 		methods: {
-			logMeIn() {
-			this.authrnticatedUsername = this.email;
+			logMeIn(username) {
+			this.authrnticatedUsername = username;
 			this.email = '';
 			},
 			
