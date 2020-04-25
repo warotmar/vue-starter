@@ -2,7 +2,8 @@
     <div>
         <h1>Witaj w systemie zapisów na zajęcia</h1>
 		<div v-if="authrnticatedUsername != ''">
-		<button@click="logMeOut()"> wyloguj </button>
+		<h3>Jesteś zalogowany jako {{authrnticatedUsername}} </h3>
+		<a@click="logMeOut()"> wyloguj </a>
 		</div>
 
 <div v-else>
@@ -24,6 +25,7 @@
 		methods: {
 			logMeIn() {
 			this.authrnticatedUsername = this.email;
+			this.email = '';
 			},
 			
 			logMeOut() {
